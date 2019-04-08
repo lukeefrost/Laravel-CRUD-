@@ -14,7 +14,7 @@ class DataController extends Controller
      */
     public function index()
     {
-        $data = Data::latests()->paginate(5);
+        $datas = Data::latest()->paginate(5);
         return view('data.index', compact('datas'))->with('i', (request()->input('page', 1) -1)*5);
     }
 
@@ -36,7 +36,7 @@ class DataController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $this->validate($request, [
           'name' => 'required',
           'description' => 'required'
         ]);
@@ -66,7 +66,7 @@ class DataController extends Controller
      */
     public function edit($id)
     {
-        $data = Data::find($id)
+        $data = Data::find($id);
         return view('data.edit', compact('data'));
     }
 

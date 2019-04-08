@@ -19,7 +19,7 @@
     @endif
 
     <form action="{{route('data.store')}}" method="post">
-      @csrf
+      {{ csrf_field() }}
       <div class="row">
         <div class="col-md-12">
           <strong>Name :</strong>

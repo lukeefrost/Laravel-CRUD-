@@ -19,8 +19,6 @@
     @endif
 
     <form action="{{route('data.update',$data->id)}}" method="post">
-      @csrf
-      @method('PUT')
       <div class="row">
         <div class="col-md-12">
           <strong>Name :</strong>
